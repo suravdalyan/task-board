@@ -1,0 +1,63 @@
+form {
+  margin: 15px 0;
+
+  div {
+    display: inline-block;
+
+    label {
+      display: block;
+    }
+
+    img {
+      width: 15px;
+      margin-left: 10px;
+    }
+
+    .up {
+      transform: rotate(90deg);
+    }
+
+    .down {
+      transform: rotate(-90deg);
+    }
+  }
+
+  .group {
+    margin-left: 50px;
+  }
+
+  .filter {
+    float: right;
+    position: relative;
+
+    label {
+      position: absolute;
+      left: -5px;
+      top: 6px;
+    }
+
+    input {
+      padding: 5px 20px;
+      border-radius: 20px;
+      border: 1px solid;
+      outline: none;
+    }
+  }
+}
+
+.columns {
+  display: inline-block;
+  width: 18%;
+  vertical-align: top;
+  border: 1px solid;
+
+  .title {
+    border-bottom: 2px solid;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .task {
+    padding: 5px;
+  }
+}

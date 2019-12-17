@@ -1,0 +1,48 @@
+<div>
+  <form [formGroup]="actionForm">
+    <div>
+      <label for="sort">Sort by:</label>
+      <select id="sort" formControlName="sort">
+        <option value="status">Status</option>
+        <option value="priority">Priority</option>
+        <option value="assignee">Assignee</option>
+      </select>
+      <span>
+       <img src="/assets/images/arrow.svg" alt="" [ngClass]="{up: decrease, down: !decrease}"
+            (click)="changeDirection()">
+     </span>
+    </div>
+    <div class="group">
+      <label for="group">Group by:</label>
+      <select id="group" formControlName="group">
+        <option value="status">Status</option>
+        <option value="priority">Priority</option>
+        <option value="assignee">Assignee</option>
+      </select>
+    </div>
+    <div class="filter">
+      <label><img src="/assets/images/search.svg" alt=""></label>
+      <input type="text" placeholder="Filter" formControlName="search">
+    </div>
+  </form>
+</div>
+
+<div>
+  <div
+    *ngFor="let column of headers; let i = index"
+    class="columns"
+    [ngStyle]="{width: 'calc((100% - '+headers.length*2+'px) / ' + headers.length + ')'}"
+  >
+    <div class="title">
+      {{column[key]}}
+    </div>
+    <div *ngFor="let task of tasks[column[key]]; let index = index" class="task">
+      <app-task
+        [task]="task"
+        [arrows]="actionForm.get('sort').value !== 'status' ? -1 : i === 0 ? i : (i === headers.length-1 ? 1 : 2)"
+        (moveTo)="onMove($event, i, index)"
+      >
+      </app-task>
+    </div>
+  </div>
+</div>

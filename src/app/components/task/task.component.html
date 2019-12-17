@@ -1,0 +1,13 @@
+<div>
+  <p class="taskInfo">{{ task.title }}</p>
+  <p class="taskInfo">{{ task.description }}</p>
+  <p>
+    <span>
+      {{task.assignee.name}}
+    </span>
+    <span class="arrows" *ngIf="arrows >= 0">
+      <button *ngIf="arrows > 0" (click)="move(-1)"><img src="./assets/images/arrow.svg" alt=""></button>
+      <button *ngIf="arrows !== 1" (click)="move(1)"><img src="./assets/images/arrow.svg" alt="" class="right"></button>
+    </span>
+  </p>
+</div>
